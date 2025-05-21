@@ -31,6 +31,8 @@ function makeGrid(num){
     for (let cell of row){
         container.appendChild(cell);
     }
+
+    
     
 };
 
