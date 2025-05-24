@@ -24,11 +24,13 @@ function makeColumn(num) {
     for (i = 0; i < num; i++) {
         //Create the rows
         const gridRow = document.createElement('div');
+        gridRow.classList.add('row')
         const row = [];
         for (j = 0; j < num; j++) {
             //Create 16 cells and append them to the gridrow
             const cell = document.createElement('div');
             cell.style.backgroundColor = 'green';
+            cell.classList.add('cell')
             row.push(cell);
             for (let cell of row) {
                 gridRow.appendChild(cell);
@@ -41,3 +43,17 @@ function makeColumn(num) {
 };
 
 makeColumn(16);
+
+//Setting up hover effect
+//Get the cells from the dom
+const cells = document.querySelectorAll('.cell');
+//For each cell, when the mouse is over background is red
+//and green again when leaving
+cells.forEach(cell => {
+    cell.addEventListener('mouseover', () => {
+        cell.style.backgroundColor = 'red';
+    })
+    cell.addEventListener('mouseout', () => {
+        cell.style.backgroundColor = 'green';
+    })
+})
