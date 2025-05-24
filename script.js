@@ -48,12 +48,8 @@ makeColumn(16);
 //Get the cells from the dom
 const cells = document.querySelectorAll('.cell');
 //For each cell, when the mouse is over background is red
-//and green again when leaving
 cells.forEach(cell => {
     cell.addEventListener('mouseover', () => {
         cell.style.backgroundColor = 'red';
-    })
-    cell.addEventListener('mouseout', () => {
-        cell.style.backgroundColor = 'green';
     })
 })
