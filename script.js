@@ -20,20 +20,24 @@ const container = document.querySelector('.container');
 //We have to change it to create 16 cells in a row
 //and then create that row 16 times
 
-function makeGrid(num){
-    const row = [];
-    for (i = 0; i < num; i++){
-        const cell = document.createElement('div');
-        cell.style.backgroundColor = 'green';
-        row.push(cell);
-    }
-    
-    for (let cell of row){
-        container.appendChild(cell);
+function makeColumn(num) {
+    for (i = 0; i < num; i++) {
+        //Create the rows
+        const gridRow = document.createElement('div');
+        const row = [];
+        for (j = 0; j < num; j++) {
+            //Create 16 cells and append them to the gridrow
+            const cell = document.createElement('div');
+            cell.style.backgroundColor = 'green';
+            row.push(cell);
+            for (let cell of row) {
+                gridRow.appendChild(cell);
+            }
+        }
+        //Append the gridrow to the container
+        container.appendChild(gridRow);
     }
 
-    
-    
 };
 
-makeGrid(16);
+makeColumn(16);
